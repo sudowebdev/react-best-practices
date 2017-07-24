@@ -37,3 +37,83 @@ So, in **React** we do something like this:
 	<Button primary></Button>
 
 We give button a **property named primary**, which will be used by the **Button component**.
+
+
+## Split containers and components
+
+Splitting containers and components is a very good practice which will **fetch you clean code**. So let's go and see what does it **mean in code**.  
+
+
+**Without splitting the container and component**, our **code-base** looks like this: 
+
+	class Sidebar extends React.Component {
+		componentDidMount(){
+			fetch('api.com/sidebar')
+				.then(res => {
+					this.setState({
+						items: res.items
+					})
+				});
+		
+		}
+
+		render(){
+
+			return (
+					<div className="sidebar">
+						{
+							this.state.items.map(item => (
+								<div className="sidebar_item")>
+								{item}
+								</div>
+							
+							)
+						}
+					</div>
+					
+					);
+		}
+	}
+
+
+After splitting the container and components, this is something we get:
+
+	class SidebarContainer extends React.Component {
+		componentDidMount(){
+			fetch('api.com/sidebar')
+				.then(res => {
+					this.setState({
+						items: res.items
+					})
+				});
+		
+		}
+
+		render(){
+
+			return (
+					<Sidebar>
+						{
+							this.state.items.map(item => (
+								<SidebarItem item={item} />	
+							)
+						}
+					</Sidebar>
+					
+					);
+		}
+	}
+
+So, from the above illustration we can clearly see what the **difference** is all about:
+
+***In the second case (the cleaner one):***  
+
+The **container component** is responsible for **fetching** the data and **providing** that data to its children (presentation components).
+
+Whereas, the **presentation components** do the presentation work of **displaying** the data.
+
+
+This **paradigm** makes our code **cleaner to read** and hence **debugging will be much easier**.
+
+***So the thing that you should always keep in mind is:***
+> One component should be responsible for only one task unless an emergency knocks on the door.
