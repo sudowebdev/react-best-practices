@@ -117,3 +117,9 @@ This **paradigm** makes our code **cleaner to read** and hence **debugging will 
 
 ***So the thing that you should always keep in mind is:***
 > One component should be responsible for only one task unless an emergency knocks on the door.
+
+
+Summarization of the second practice:
+
+Containers: Care about **How Things Work**  
+Components: Care about **How Things Look**
