@@ -123,3 +123,7 @@ Summarization of the second practice:
 
 Containers: Care about **How Things Work**  
 Components: Care about **How Things Look**
+
+
+## What about Styling
+**CSS was designed** in the age when **web was made for scientific documents** (in 1995). But now that **scenario has completely changed**. Now, the web **doesn't** consist **only of text**. So, the idea behind how to use **styling must change** and this is where the **best practices** of using styling have come up in component based systems.
